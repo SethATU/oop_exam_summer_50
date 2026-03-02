@@ -29,3 +29,7 @@
 //    public int getStartHour() { return startHour; }
 //    public int getDurationHours() { return durationHours; }
 //}
+
+/*
+This was supposted to be where the booking would be saved
+ */

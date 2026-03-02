@@ -1,3 +1,10 @@
+/*
+Bellow is the controller with each individual data in their own mapping
+If the user inputs an incorrect data item they will get a bad request else it will go threw as normal
+
+due to localhost:8080 not working and I don't want to accidentally use Google chromes AI or anything to loos marks, no testing was done
+ */
+
 package ie.atu.oop_exam_summer_50.controller;
 
 import ie.atu.oop_exam_summer_50.service.BookingService;
@@ -15,6 +22,7 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
+    /// id must be greater than 0
     @GetMapping("/id")
     public ResponseEntity<?> reservationId(@RequestParam int id) {
         if(id < 0) {
@@ -28,6 +36,7 @@ public class BookingController {
         }
     }
 
+    ///  tag must be 3 digits long and cant be negative
     @GetMapping("/tag")
     public ResponseEntity<?> reservationTag(@RequestParam int tag) {
         if(tag > 999) {
@@ -46,6 +55,7 @@ public class BookingController {
         }
     }
 
+    /// email must contain @atu.ie
     @GetMapping("/email")
     public ResponseEntity<?> studentEmail(@RequestParam String email) {
         if(email.contains("@atu.ie")) {
@@ -59,11 +69,14 @@ public class BookingController {
         }
     }
 
+    /// couldnt think of what to do for this one with errors
     @GetMapping("/date")
     public ResponseEntity<?> reservationDate(@RequestParam int date) {
         int DATE = bookingService.reservationDate(date);
         return ResponseEntity.ok("Reservation Date: " + DATE);
     }
+
+    /// the start time must be within a 24 hour clock
     @GetMapping("/start")
     public ResponseEntity<?> startHour(@RequestParam int hour) {
         if(hour < 0 || hour > 23) {
@@ -77,6 +90,7 @@ public class BookingController {
         }
     }
 
+    /// you cant stay for longer than 60 days, and it must be greater than 0 days
     @GetMapping("/duration")
     public ResponseEntity<?> durationHour(@RequestParam int duration) {
         if(duration < 0 || duration > 59) {
@@ -89,8 +103,4 @@ public class BookingController {
                     .body("Duration must be between 0 and 59 days");
         }
     }
-
-
-
-
 }

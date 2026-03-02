@@ -1,3 +1,7 @@
+/*
+Service layer for mini microservice
+Each item takes in data and should save to Array list however i have forgotten how to make and use array list
+ */
 package ie.atu.oop_exam_summer_50.service;
 
 import org.springframework.stereotype.Service;
