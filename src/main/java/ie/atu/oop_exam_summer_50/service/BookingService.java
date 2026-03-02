@@ -1,26 +1,13 @@
 package ie.atu.oop_exam_summer_50.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class BookingService {
-    private int reservationId;
-    private int equipmentTag;
-    private String studentEmail;
-    private int reservationDate;
-    private int startHour;
-    private int durationHours;
-
-    public BookingService(int reservationId, int equipmentTag, String studentEmail, int reservationDate, int startHour, int durationHours ) {
-        this.reservationId = reservationId;
-        this.equipmentTag = equipmentTag;
-        this.studentEmail = studentEmail;
-        this.reservationDate = reservationDate;
-        this.startHour = startHour;
-        this.durationHours = durationHours;
-    }
-
-    public int getReservationId() { return reservationId; }
-    public int getEquipmentTag() { return equipmentTag; }
-    public String getStudentEmail() { return studentEmail; }
-    public int getReservationDate() { return reservationDate; }
-    public int getStartHour() { return startHour; }
-    public int getDurationHours() { return durationHours; }
+    public int reservationId(int id) { return id; }
+    public int equipmentTag(int tag) { return tag; }
+    public String studentEmail(String email) { return email; }
+    public int reservationDate(int date) { return date; }
+    public int startHour(int start) { return start; }
+    public int durationHours(int hour) { return hour; }
 }
